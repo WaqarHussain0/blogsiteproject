@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../src/common/assests/fonts/Helvetica/HelveticaNeue\ Light.ttf') format('otf')
+  }
+
+body {
+    font-family: 'Helvetica','sans-serif';
+    margin: 0px;
+    padding: 0px;
+  }
+
+  @font-face
+{
+  font-family: RegularSourceSerif;
+  src: url(../src/common/assests/fonts/SourceSerifPro/SourceSerifPro-Regular.ttf);
+}
+.RegularSourceSerif
+{
+  font-family: RegularSourceSerif;
+}
+
+
+
