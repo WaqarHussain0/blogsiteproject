@@ -2,20 +2,19 @@ import React, { FC } from "react";
 import Row from "../../row";
 import Button from "../../../ui/form/button";
 
-interface IFollowingData {
-  followingsData: Array<{
+interface IFollowerData {
+  followersData: Array<{
     name?: string;
     imgSrc?: string;
   }>;
 }
-
-const Following: FC<IFollowingData> = ({ followingsData }) => {
+const followers: FC<IFollowerData> = ({ followersData }) => {
   return (
     <Row className="flex-col justify-start w-[40%] p-1 md:px-2 ">
       <h2 className="text-[#242424] text-[14px] md:text-[16px] font-medium ">
-        Following
+        Followers
       </h2>
-      {followingsData.map((user, index) => (
+      {followersData.map((user, index) => (
         <Row key={index} className="flex-col">
           <Row className=" justify-between items-center py-2 border-b-[1px] ">
             <Row className="items-center gap-4">
@@ -39,4 +38,4 @@ const Following: FC<IFollowingData> = ({ followingsData }) => {
   );
 };
 
-export default Following;
+export default followers;

@@ -73,9 +73,9 @@ pgCommentRouter.post("/:blogID", async (req, res) => {
 });
 
 // Route to get all comments of a blog
-pgCommentRouter.get("/:blogId", async (req, res) => {
+pgCommentRouter.get("/:blogID", async (req, res) => {
   try {
-    const blogID = req.params.blogId;
+    const blogID = req.params.blogID;
     const comments = await Comment.findAll({ where: { blogID } });
 
     if (!comments || comments.length === 0) {

@@ -46,3 +46,10 @@ export const UPDATE_BLOG_BY_ID_API = (blogID: string) => `/pg/blog/${blogID}`;
 // API to Delete the blog of by owner
 export const DELETE_BLOG_BY_ID_API = (blogID: string) => `/pg/blog/${blogID}`;
 export const DELETE_USER_BY_ID_API = (userID: string) => `/pg/user/${userID}`;
+
+// API to Add Comment to a blog
+export const ADD_COMMENT_API = (blogID: string) => `/pg/comment/${blogID}`;
+
+// API to Get all Comment of a blog
+export const GET_BLOG_ALL_COMMENT_API = (blogID: string) =>
+  `/pg/comment/${blogID}`;

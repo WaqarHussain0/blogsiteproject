@@ -9,6 +9,7 @@ const engagementReducer: Reducer = (state = initialState, action) => {
     case EngagementActions.ADD_COMMENT:
     case EngagementActions.LIKE_BLOG:
     case EngagementActions.LIKE_COMMENT:
+    case EngagementActions.GET_BLOG_ALL_COMMENT:
       return {
         ...state,
         data: payload,

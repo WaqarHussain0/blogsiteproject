@@ -8,6 +8,7 @@ import Footer from "../common/components/footer"
 const WelcomePage: React.FC = () => {
   return (
     <Row className="w-full flex-col items-center ">
+
       <div className="px-[10%] flex-col bg-[#FFC017] py-4 justify-center w-full items-center border-b-[1px] border-black">
         <TopBar />
       </div>

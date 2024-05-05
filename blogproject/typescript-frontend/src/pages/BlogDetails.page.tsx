@@ -8,7 +8,13 @@ import { blogActionCreator } from "../common/redux/actions/blog.action";
 import { userActionCreator } from "../common/redux/actions/user.action";
 import { useParams } from "react-router-dom";
 import { PiHandsClappingThin } from "react-icons/pi";
+import Comment from "../common/components/pagecomponents/blogdetails/AllComments";
 
+import waqar from "../common/assests/imgs/waqar.JPG";
+import person2 from "../common/assests/imgs/person2.png";
+import person3 from "../common/assests/imgs/person3.png";
+import AddComment from "../common/components/pagecomponents/blogdetails/AddComment";
+import { engagementActionCreator } from "../common/redux/actions/engagement.action";
 interface IBlogData {
   title: string;
   coverPic?: string;
@@ -30,6 +36,7 @@ const BlogDetailsPage: React.FC = () => {
 
   const [blogData, setBlogData] = useState<IBlogData | undefined>();
   const [recommendedBlogData, setRecommendedBlogData] = useState([]);
+  const [blogComment, setBlogComment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const dataToSend = {
@@ -60,9 +67,46 @@ const BlogDetailsPage: React.FC = () => {
   const blogOwnerImg = blogData?.User.profilePic;
   const blogOwnerTitle = blogData?.User.title;
 
+  const dummyComments = [
+    {
+      imgSrc: waqar,
+      name: "waqar",
+      comment: "Good",
+    },
+    {
+      imgSrc: person2,
+      name: "ahmed",
+      comment: "Well",
+    },
+    {
+      imgSrc: person3,
+      name: "asad",
+      comment: "Thanks",
+    },
+  ];
+
+  const handleGetAllComment = () => {
+    console.log("hi");
+    const dataToSend = {
+      blogID: blogID,
+      token: getToken,
+    };
+
+    dispatch(
+      engagementActionCreator.getBlogAllComment(dataToSend, setBlogComment)
+    );
+
+    console.log(blogComment);
+  };
+
   return (
     <Row className="flex-col justify-center w-full items-center">
       <TopBar />
+
+      <button className="px-4 bg-red-300 py-2" onClick={handleGetAllComment}>
+        click me to get all comments of this blog
+      </button>
+
       <Row className="flex-col w-full px-4 md:px-4 md:w-[80%] md:mt-8 gap-8 ">
         {blogData && (
           <h2 className="md:text-[40px] font-bold">{blogData.title}</h2>
@@ -112,6 +156,8 @@ const BlogDetailsPage: React.FC = () => {
           {blogData && <h2>{blogData.likesCount}</h2>}
         </Row>
       </Row>
+      <AddComment />
+      <Comment blogscomment={dummyComments} />
 
       <Row className="w-full flex-col bg-slate-100 items-center">
         <Row className="flex-col w-full px-4 md:px-4 md:w-[80%] mt-4 md:mt-14 gap-4 ">
